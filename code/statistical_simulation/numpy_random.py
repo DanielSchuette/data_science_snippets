@@ -34,6 +34,16 @@ poisson_dist = np.random.poisson(lamb, size)
 sns.distplot(poisson_dist)
 # plt.show("hold")
 
+# the beta distribution (useful for Bayesian statistics) is also available
+beta_dist = np.random.beta(
+    a=1, b=1, size=(
+        100,
+        100,
+        100,
+    ))  # `size' can be a tuple!
+sns.distplot(beta_dist)
+plt.show("hold")
+
 # to randomly shuffle values in a list or numpy array, `np.random.shuffle'
 # can be used
 sorted_list = list(range(10))
