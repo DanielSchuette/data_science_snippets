@@ -6,48 +6,54 @@ import matplotlib.pyplot as plt
 import numpy as np
 import seaborn as sns
 
-# initialize a random seed
-try:
-    seed = int(input("please input an integer to use as a random seed: "))
-except ValueError or TypeError:
-    sys.exit(1)
 
-np.random.seed(seed)
+def main():
+    """
+    examples demonstrating how to use the numpy.random module
+    for statistical simulations
+    """
 
-# generate a random sample from a given 1-D array `a'
-# optional arguments let you specify:
-#   1. what the output shape is going to be (`size')
-#   2. whether to sample with replacement (`replace')
-#   3. whether the entries in `a' have different probabilities
-#      to be drawn during sampling (`p')
-sample = np.array([1, 2, 3, 4, 5, 6])
-rand_sampled = np.random.choice(sample)
-print(rand_sampled)
+    # initialize a random seed
+    try:
+        seed = int(input("please input an integer to use as a random seed: "))
+    except ValueError or TypeError:
+        sys.exit(1)
 
-# the numpy.random module provides a suit of functions to draw random
-# samples from probability distributions, e.g. the Poisson distribution
-# parameters: lambda (`lamb'), sample size (`size')
-lamb, size = 5, 1000
-poisson_dist = np.random.poisson(lamb, size)
+    np.random.seed(seed)
 
-# seaborn's `distplot' can be used to visualize probability distributions
-sns.distplot(poisson_dist)
-# plt.show("hold")
+    # generate a random sample from a given 1-D array `a'
+    # optional arguments let you specify:
+    #   1. what the output shape is going to be (`size')
+    #   2. whether to sample with replacement (`replace')
+    #   3. whether the entries in `a' have different probabilities
+    #      to be drawn during sampling (`p')
+    sample = np.array([1, 2, 3, 4, 5, 6])
+    rand_sampled = np.random.choice(sample)
+    print("input: {}, randomly sampled: {}".format(sample, rand_sampled))
 
-# the beta distribution (useful for Bayesian statistics) is also available
-beta_dist = np.random.beta(
-    a=1, b=1, size=(
-        100,
-        100,
-        100,
-    ))  # `size' can be a tuple!
-sns.distplot(beta_dist)
-plt.show("hold")
+    # the numpy.random module provides a suit of functions to draw random
+    # samples from probability distributions, e.g. the Poisson distribution
+    # parameters: lambda (`lamb'), sample size (`size')
+    lamb, size = 5, 1000
+    poisson_dist = np.random.poisson(lamb, size)
 
-# to randomly shuffle values in a list or numpy array, `np.random.shuffle'
-# can be used
-sorted_list = list(range(10))
-print("sorted: {}".format(sorted_list))
-shuffled_list = sorted_list.copy()  # `np.random.shuffle' will shuffle in-place
-np.random.shuffle(shuffled_list)
-print("shuffled: {}".format(shuffled_list))
+    # seaborn's `distplot' can be used to visualize probability distributions
+    sns.distplot(poisson_dist)
+    plt.show("hold")
+
+    # the beta distribution (useful for Bayesian statistics) is also available
+    beta_dist = np.random.beta(a=1, b=1, size=1000)  # `size' can be a tuple
+    sns.distplot(beta_dist)
+    plt.show("hold")
+
+    # to randomly shuffle values in a list or numpy array, `np.random.shuffle'
+    # can be used
+    sorted_list = list(range(10))
+    print("sorted: {}".format(sorted_list))
+    shuffled_list = sorted_list.copy()  # `np.random.shuffle' shuffles in-place
+    np.random.shuffle(shuffled_list)
+    print("shuffled: {}".format(shuffled_list))
+
+
+if __name__ == "__main__":
+    main()
