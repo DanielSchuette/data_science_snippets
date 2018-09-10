@@ -22,9 +22,25 @@ def main():
         5. visualize/analyze outcomes
     """
     # fair die simulation
-    side_number = int(input("how many sides does your die have? "))
-    d = die.Die(sides=side_number, probabilities=None)
-    print("outcome: {}".format(d.throw(times=5, verbose=True)))
+    # two dies are thrown 1000 times each and if the results
+    # are the same, the player wins
+    num_throws = 1000
+    d1 = die.Die(sides=6, probabilities=None)
+    d2 = die.Die(sides=6, probabilities=None)
+    outcomes = []
+    for i in range(num_throws):
+        out = (d1.throw(1)[0], d2.throw(1)[0])
+        outcomes.append(out)
+
+    # then, count the number of wins
+    win_counter = 0
+    for val in outcomes:
+        if val[0] == val[1]:
+            win_counter += 1
+
+    # finally, print the proportion of wins
+    print(("out of {} throws you won {}%").format(num_throws,
+                                                  win_counter / num_throws))
 
 
 if __name__ == "__main__":
