@@ -1,2 +1,5 @@
 # exclude assets folder
 # assets/
+
+# exclude python's cached files
+__pycache__

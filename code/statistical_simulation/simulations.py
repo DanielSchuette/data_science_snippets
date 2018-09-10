@@ -1,5 +1,9 @@
 #!/Library/Frameworks/Python.framework/Versions/3.7/bin/python3
 
+import sys
+
+import die
+
 
 def main():
     """
@@ -17,7 +21,12 @@ def main():
            distribution to simulate possible outcomes
         5. visualize/analyze outcomes
     """
+    # fair die simulation
+    side_number = int(input("how many sides does your die have? "))
+    d = die.Die(sides=side_number, probabilities=None)
+    print("outcome: {}".format(d.throw(times=5, verbose=True)))
 
 
 if __name__ == "__main__":
     main()
+    sys.exit(0)
