@@ -8,11 +8,11 @@ class Die():
     class Die has methods and attributes that are needed
     to statistically simulate the throwing of a die
     specifically, a die has
-        `sides' - number of sides (default is 6)
+        `sides'         - number of sides (default is 6)
         `probabilities  - list giving the probability of
                           outcomes when throwing the die
-        `.throw(x)'     - returns a list of outcomes
-                          after throwing the die `n' times
+        `.throw(times)' - returns a list of outcomes
+                          after throwing the die n `times'
         `.plot()'       - TODO: implement!
     """
 
