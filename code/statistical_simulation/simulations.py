@@ -38,7 +38,7 @@ def main():
         if val[0] == val[1]:
             win_counter += 1
 
-    # finally, print the proportion of wins
+    # finally, print out the proportion of wins
     print(("out of {} throws you won {}%").format(num_throws,
                                                   win_counter / num_throws))
 
