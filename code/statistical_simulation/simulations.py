@@ -20,6 +20,9 @@ def main():
         4. sample repeatedly from the appropriate probability
            distribution to simulate possible outcomes
         5. visualize/analyze outcomes
+
+    this file demonstrates different simulation examples:
+        1. throw of a fair die
     """
     # fair die simulation
     # two dies are thrown 1000 times each and if the results
